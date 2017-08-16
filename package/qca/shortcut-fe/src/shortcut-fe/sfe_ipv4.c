@@ -38,7 +38,7 @@
  */
 #define SFE_IPV4_UNALIGNED_IP_HEADER 1
 #if SFE_IPV4_UNALIGNED_IP_HEADER
-#define SFE_IPV4_UNALIGNED_STRUCT __attribute__((packed))
+#define SFE_IPV4_UNALIGNED_STRUCT __attribute__((aligned(4)))
 #else
 #define SFE_IPV4_UNALIGNED_STRUCT
 #endif

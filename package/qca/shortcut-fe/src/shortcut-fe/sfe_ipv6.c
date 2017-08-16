@@ -37,7 +37,7 @@
  */
 #define SFE_IPV6_UNALIGNED_IP_HEADER 1
 #if SFE_IPV6_UNALIGNED_IP_HEADER
-#define SFE_IPV6_UNALIGNED_STRUCT __attribute__((packed))
+#define SFE_IPV6_UNALIGNED_STRUCT __attribute__((aligned(4)))
 #else
 #define SFE_IPV6_UNALIGNED_STRUCT
 #endif
@@ -1061,6 +1061,7 @@ static void sfe_ipv6_gen_sync_connection(struct sfe_ipv6 *si, struct sfe_ipv6_co
 	/*
 	 * Fill in the update message.
 	 */
+	sis->is_v6 = 1;	 
 	sis->protocol = c->protocol;
 	sis->src_ip.ip6[0] = c->src_ip[0];
 	sis->src_ip_xlate.ip6[0] = c->src_ip_xlate[0];
